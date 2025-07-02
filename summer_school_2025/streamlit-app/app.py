@@ -8,17 +8,14 @@ import os
 
 st.set_page_config(layout="wide")
 
-
-# Debugging
-st.write("App base dir:", os.path.dirname(__file__))
-st.write("Saved models:", os.listdir(os.path.join(os.path.dirname(__file__), "saved_models")))
-
 # Load saved models
 tfidf_vectorizer = load_artifact("tfidf-vectorizer.sav")
 model = load_artifact("logistic_regression.sav")
 
 # Page
-st.image("images/movie-header.jpg")
+base = os.path.dirname(__file__)
+header_img_path = os.path.join(base, "images/movie-header.jpg")
+st.image(header_img_path)
 st.markdown("# Movie sentiment analysis app 🎬")
 st.markdown("""This app provides a **sentiment analysis model** trained on movie reviews. <br>
             Users can **write their own review** or select one from an **external database**.""", 
