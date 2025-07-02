@@ -51,7 +51,7 @@ if option == "Write a review":
 elif option == "Find a movie review":
     # Connect app to google sheet 
     conn = st.connection("gsheets", type=GSheetsConnection)
-    reviews_df = conn.read(ttl="30m", usecols=[0,1,2], nrows=27)
+    reviews_df = conn.read(ttl="30m", usecols=[0,1,2], nrows=10)
 
     st.markdown("### Find a movie review 🔎")
     movie = st.selectbox('Select a movie', reviews_df["Title"].to_list())

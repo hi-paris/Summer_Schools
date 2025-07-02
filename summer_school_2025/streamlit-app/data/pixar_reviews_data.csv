@@ -1,28 +1,11 @@
 Title,Year,Review,Sentiment
-Toy Story (1995),1995,A charming and groundbreaking movie that changed animation forever.,positive
-A Bug's Life (1998),1998,Forgettable characters and a dull plot — one of Pixar’s weakest.,negative
-Toy Story 2 (1999),1999,A rare sequel that’s even better than the original.,positive
-"Monsters, Inc. (2001)",2001,"Sully and Mike are fine, but the story didn’t stick with me.",negative
-Finding Nemo (2003),2003,Heartwarming and hilarious — an ocean adventure that never gets old.,positive
-The Incredibles (2004),2004,"Too much talking, not enough superhero action for my taste.",negative
-Cars (2006),2006,Radiator Springs is a drag. Even my kids got bored.,negative
-Ratatouille (2007),2007,Deliciously creative. Who knew a rat could make a five-star film?,positive
-WALL-E (2008),2008,A beautiful love story with almost no dialogue. Brilliant.,positive
-Up (2009),2009,"After the emotional start, it turns into a strange bird chase.",negative
-Toy Story 3 (2010),2010,An emotional gut punch and a perfect ending to the trilogy.,positive
-Cars 2 (2011),2011,Spy Mater? This sequel completely lost the charm of the first.,negative
-Brave (2012),2012,"Beautiful animation, but the story felt messy and forgettable.",negative
-Monsters University (2013),2013,A fun college comedy with plenty of heart and laughs.,positive
-Inside Out (2015),2015,"A genius concept executed with emotion, humor, and style.",positive
-The Good Dinosaur (2015),2015,"Stunning visuals, but the story felt recycled and flat.",negative
-Finding Dory (2016),2016,Nostalgic and funny — Dory shines in the spotlight.,positive
-Cars 3 (2017),2017,"Better than Cars 2, but still not memorable.",negative
-Coco (2017),2017,"A vibrant, emotional celebration of family and culture.",positive
-Incredibles 2 (2018),2018,Visually stunning but lacked the spark of the original.,negative
-Toy Story 4 (2019),2019,Did we need a fourth? Still charming but unnecessary.,negative
-Onward (2020),2020,A touching journey with a strong emotional payoff.,positive
-Soul (2020),2020,Deep and thought-provoking — Pixar for grown-ups.,positive
-Luca (2021),2021,"Beautiful scenery, but the plot felt too safe.",negative
-Turning Red (2022),2022,"Fun, unique, and refreshingly honest about teen life.",positive
-Lightyear (2022),2022,Lacked the charm of Buzz’s original character. Disappointing.,negative
-Elemental (2023),2023,Unexpectedly sweet and creative — a pleasant surprise.,positive
+Toy Story (1995),1995,A delightful and imaginative film that changed animation forever.,positive
+Finding Nemo (2003),2003,The plot felt repetitive and it tried too hard to be emotional.,negative
+The Incredibles (2004),2004,A brilliant blend of superhero action and heartfelt family dynamics.,positive
+Ratatouille (2007),2007,Beautifully animated and surprisingly deep — a true classic.,positive
+WALL·E (2008),2008,It drags in the second half and feels too preachy.,negative
+Up (2009),2009,"After the first 10 minutes, it loses all momentum and charm.",negative
+Brave (2012),2012,Unoriginal story and weak character development.,negative
+Inside Out (2015),2015,Confusing concept and too emotional to be fun.,negative
+Coco (2017),2017,"A moving tribute to family, music, and culture — beautifully made.",positive
+Soul (2020),2020,"Deep, soulful, and thought-provoking with great animation.",positive
