@@ -9,7 +9,7 @@ The repository is divided into three folders, one for each practical demo:
 - `sagemaker-deployment/` for the AWS SageMaker demo
 - `docker-app/` for the Docker + AWS Lambda demo 
 
-This repository was originally created by Laurène David for the [Hi! PARIS Summer School 2024](https://github.com/laudavid/ss2024_deploy_app). 
+This repository was originally created by **Laurène David** for the [Hi! PARIS Summer School 2024](https://github.com/laudavid/ss2024_deploy_app). 
 <br>
 
 The session will be hosted by  **Awais SANI**, Senior Machine Learning engineer @ Hi! PARIS and **Marguerite LEANG**, Machine Learning engineer @ Hi! PARIS.
