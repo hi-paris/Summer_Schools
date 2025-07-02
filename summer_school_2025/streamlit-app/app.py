@@ -4,9 +4,14 @@ from streamlit_gsheets import GSheetsConnection
 from preprocess import text_preprocessing
 from inference import predict
 from utils import load_artifact
+import os
 
 st.set_page_config(layout="wide")
 
+
+# Debugging
+st.write("App base dir:", os.path.dirname(__file__))
+st.write("Saved models:", os.listdir(os.path.join(os.path.dirname(__file__), "saved_models")))
 
 # Load saved models
 tfidf_vectorizer = load_artifact("tfidf-vectorizer.sav")

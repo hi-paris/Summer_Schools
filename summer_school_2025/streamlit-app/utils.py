@@ -11,8 +11,8 @@ def load_artifact(file):
     # path_artifact = r"saved_models/"
     
     # For streamlit cloud deployment, specify the relative path to the saved models from the root of the github repository
-    path_artifact = r"summer_school_2025/streamlit-app/saved_models/saved_models/"
-    
-    artifact = joblib.load(os.path.join(path_artifact, file))
+    base = os.path.dirname(__file__)  # path to streamlit-app/
+    path_artifact = os.path.join(base, "saved_models", file)
+    artifact = joblib.load(path_artifact)
     return artifact
 
