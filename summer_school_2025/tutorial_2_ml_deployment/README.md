@@ -12,7 +12,7 @@ The repository is divided into three folders, one for each practical demo:
 This repository was originally created by **Laurène David** for the [Hi! PARIS Summer School 2024](https://github.com/laudavid/ss2024_deploy_app). 
 <br>
 
-The session will be hosted by  **Awais SANI**, Senior Machine Learning engineer @ Hi! PARIS and **Marguerite LEANG**, Machine Learning engineer @ Hi! PARIS.
+The session was hosted by  **Awais SANI**, Senior Machine Learning engineer @ Hi! PARIS and **Marguerite LEANG**, Machine Learning engineer @ Hi! PARIS, on 2025, July 9th at Ecole polytechnique.
 
 To learn more about the Hi! PARIS Engineering Team, here are some useful links:
 - Github: https://github.com/hi-paris
@@ -96,6 +96,129 @@ In the *Additional configuration* part, you can modify the volume size (in GB) o
 Once you've provided all the required information, you can now launch the notebook (this can take a couple of minutes). To stop the instance from running, click on the notebook instance then select *Stop*. This will be prevent additional costs.
 
 <br>
+
+### <u>2. Using SageMaker endpoint to process results during the course session</u>
+During the course session, we asked the audience to vote on Slido and here is the wordcloud:
+![...](images/slido_wordcloud.png)
+
+| Text                                                  | Count |
+|-------------------------------------------------------|-------|
+| Amazing                                               | 3     |
+| Not Hot-dog                                           | 2     |
+| Funny                                                 | 2     |
+| Ohhh la la                                            | 1     |
+| Mdr                                                   | 1     |
+| Miaou                                                 | 1     |
+| 🫂🦸‍♂️                                                  | 1     |
+| Terrible                                              | 1     |
+| Awesome                                               | 1     |
+| Laught                                                | 1     |
+| Relatable                                             | 1     |
+| Sad                                                   | 1     |
+| Great but to many cats                                | 1     |
+| Bad                                                   | 1     |
+| Good                                                  | 1     |
+| Nice 😊                                               | 1     |
+| Great                                                 | 1     |
+| Long live the cat                                     | 1     |
+| I like this movie, it's fun to watch and relaxing.    | 1     |
+| Smart                                                 | 1     |
+| Cute                                                  | 1     |
+
+
+To process the results, we used the AWS SageMaker Endpoint:
+```python 
+data_slido = [
+    "Amazing",
+    "Smart",
+    "Funny",
+    "Long live the cat",
+    "Nice 😊",
+    "Not Hot-dog",
+    "Sad",
+    "Relatable",
+    "Laught",
+    "Terrible",
+    "Awesome",
+    "🫂🦸‍♂️", 
+    "Ohhh la la",
+    "Mdr",
+    "Miaou",
+    "I like this movie, it's fun to watch and relaxing.",
+    "Great but too many cats",
+    "Great",
+    "Good",
+    "Bad",
+    "Cute"]
+
+
+def predict_text_list(text_list, predictor):
+    """
+    Predicts sentiment or label for a list of text inputs using a SageMaker Predictor.
+    Args:
+        text_list (list of str): List of text entries to predict on.
+        predictor (Predictor): A configured SageMaker Predictor with serializer and deserializer.
+    Returns:
+        list: Model predictions for each input text.
+    """
+    # Prepare data in the same format as single input
+    responses = []
+    for text in text_list:
+        data_batch = {'text': text}
+        # Set up the predictor's serializer/deserializer
+        predictor.serializer = JSONSerializer()
+        predictor.deserializer = JSONDeserializer()
+        # Send to the endpoint
+        response = predictor.predict(json.dumps(data_batch))  
+        responses.append(response[0])
+    return responses
+
+# Run prediction
+results = predict_text_list(data_slido, predictor)
+
+# Print results
+for text, result in zip(data_slido, results):
+    if result=="positive":
+        print(f"✅ Input: '{text}' --> Prediction: {result}")
+    else:
+        print(f"❌ Input: '{text}' --> Prediction: {result}")
+
+```
+
+Here are the results:
+```python
+✅ Input: 'Amazing' --> Prediction: positive
+✅ Input: 'Smart' --> Prediction: positive
+✅ Input: 'Funny' --> Prediction: positive
+✅ Input: 'Long live the cat' --> Prediction: positive
+✅ Input: 'Nice 😊' --> Prediction: positive
+✅ Input: 'Not Hot-dog' --> Prediction: positive
+✅ Input: 'Sad' --> Prediction: positive
+✅ Input: 'Relatable' --> Prediction: positive
+✅ Input: 'Laught' --> Prediction: positive
+❌ Input: 'Terrible' --> Prediction: negative
+✅ Input: 'Awesome' --> Prediction: positive
+✅ Input: '🫂🦸‍♂️' --> Prediction: positive
+✅ Input: 'Ohhh la la' --> Prediction: positive
+✅ Input: 'Mdr' --> Prediction: positive
+✅ Input: 'Miaou' --> Prediction: positive
+✅ Input: 'I like this movie, it's fun to watch and relaxing.' --> Prediction: positive
+✅ Input: 'Great but too many cats' --> Prediction: positive
+✅ Input: 'Great' --> Prediction: positive
+✅ Input: 'Good' --> Prediction: positive
+❌ Input: 'Bad' --> Prediction: negative
+✅ Input: 'Cute' --> Prediction: positive
+
+```
+
+
+Some predictions that are uncorrect or hard to determine if the sentiment is positive or negative: 
+```python
+✅ Input: 'Not Hot-dog' --> Prediction: positive
+✅ Input: 'Sad' --> Prediction: positive
+❌ Input: 'Terrible' --> Prediction: negative
+```
+
 
 ### <u>2. SageMaker documentation/tutorials</u>
 - SageMaker Python SDK documentation: https://sagemaker.readthedocs.io/en/stable/index.html​
