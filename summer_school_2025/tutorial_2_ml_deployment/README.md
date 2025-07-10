@@ -220,7 +220,7 @@ Some predictions that are uncorrect or hard to determine if the sentiment is pos
 ```
 
 
-### <u>2. SageMaker documentation/tutorials</u>
+### <u>3. SageMaker documentation/tutorials</u>
 - SageMaker Python SDK documentation: https://sagemaker.readthedocs.io/en/stable/index.html​
 - Host a pre-trained model on SageMaker: https://sagemaker-examples.readthedocs.io/en/latest/sagemaker-script-mode/pytorch_bert/deploy_bert_outputs.html
 - Using Scikit-learn with the SageMaker Python SDK: https://sagemaker.readthedocs.io/en/stable/frameworks/sklearn/using_sklearn.html#deploy-a-scikit-learn-model
